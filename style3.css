@@ -1,0 +1,182 @@
+html {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  font-family: 'Roboto', sans-serif;
+  color: #555555;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.size {
+    width: 150px;
+    height: 50px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+body.donate {
+    background-color: #f8f9fa; /* Light gray background */
+    font-family: Arial, sans-serif; /* Change font to Arial or preferred sans-serif font */
+}
+
+.card {
+    border: 1px solid #ccc; /* Add a border around the card */
+    border-radius: 10px; /* Round the corners of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+}
+
+.card-title {
+    color: #333; /* Darken the card title text color */
+}
+
+.form-control {
+    margin-bottom: 15px; /* Increase bottom margin for form inputs */
+}
+
+.input-group-text {
+    background-color: #007bff; /* Blue background for the input group text */
+    color: #fff; /* White text color */
+    border: 1px solid #007bff; /* Blue border */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue button background color */
+    border: none; /* Remove button border */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#card-errors {
+    color: red; /* Error text color */
+    margin-top: 10px; /* Add space between error message and input */
+}
+
+img.gala {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h6 {
+	text-align: center;
+	color: black;
+}
+
+body.form {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 400px;
+  margin: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.registration-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}

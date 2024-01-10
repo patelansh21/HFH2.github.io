@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Donation Page</title>
+	<link href="style3.css" rel="stylesheet" type="text/css">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+		<header>
+		<h1>Donation</h1>
+		<nav class="topnav" id="myTopnav">
+			<a href="index.html">Home</a>
+			<a href="advocate.html">Advocate</a>
+			<a class="active" href="donate.html">Donate</a>
+			<a href="GALA.html">Upcoming Event!</a>
+		</nav>
+    </header>
+
+<body class="donate">
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Support Our Cause</h2>
+                        
+                        <!-- Donation Form with Stripe -->
+                        <form id="payment-form">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="amount">Amount:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="amount" placeholder="Enter donation amount" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-element">Credit Card:</label>
+                                <div id="card-element"></div>
+                                <!-- Used to display form errors -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Donate Now</button>
+                        </form>
+                        <!-- End Donation Form with Stripe -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
+    <!-- Your Stripe Publishable Key -->
+    <script>
+        var stripe = Stripe('your-publishable-key');
+        var elements = stripe.elements();
+
+        // Create an instance of the card Element.
+        var card = elements.create('card');
+
+        // Add an instance of the card Element into the `card-element` div.
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element.
+        card.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server.
+                    // You can also use result.token to create a charge or a customer in your Stripe account.
+                    console.log(result.token);
+                    // Handle the token here (e.g., send it to your server)
+                    // For demo purposes, you can just alert the token.
+                    alert('Token created: ' + result.token.id);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
