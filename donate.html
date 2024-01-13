@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Donation Page</title>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<title>Donation Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="style3.css" rel="stylesheet" type="text/css">
     
     <!-- Bootstrap CSS -->
@@ -11,13 +12,27 @@
 </head>
 		<header>
 		<h1>Donation</h1>
-		<nav class="topnav" id="myTopnav">
+		<div class="tnavbar" id="tmyNavbar">
 			<a href="index.html">Home</a>
 			<a href="advocate.html">Advocate</a>
 			<a class="active" href="donate.html">Donate</a>
 			<a href="GALA.html">Upcoming Event!</a>
-		</nav>
-    </header>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			&#9776;
+			</a>
+		</div>
+
+	<script>
+  		function myFunction() {
+    		var x = document.getElementById("tmyNavbar");
+    		if (x.className === "tnavbar") {
+     			 x.className += " responsive";
+   		 } else {
+      			x.className = "tnavbar";
+    		}
+		}
+	</script>
+</header>
 
 <body class="donate">
 

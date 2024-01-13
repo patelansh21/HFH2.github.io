@@ -22,56 +22,71 @@ header {
     height: 50px;
 }
 
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
+.tnavbar {
+      background-color: #333;
+      overflow: hidden;
+    }
 
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+    .tnavbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+    .tnavbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
 
-.topnav a.active {
+    .tnavbar .icon {
+      display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+      .tnavbar a:not(:first-child) {display: none;}
+      .tnavbar a.icon {
+        float: right;
+        display: block;
+      }
+    }
+
+    .tnavbar.responsive {
+      position: relative;
+    }
+
+    .tnavbar.responsive a.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .tnavbar.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+
+
+.tnavbar a.active {
   background-color: #04AA6D;
   color: white;
 }
 
-.topnav .icon {
-  display: none;
+@media (max-width: 767px) {
+  // Style for devices have width <= 767px; 
 }
 
-@media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+@media (max-width: 1023px) and (min-width: 768px) {
+  // Style for devices have width >= 768px and <= 1023px;
 }
 
-@media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+@media (min-width: 1024px) {
+  // Style for devices have width >= 1024px;
 }
+
 
 body.donate {
     background-color: #f8f9fa; /* Light gray background */
